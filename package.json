@@ -9,7 +9,9 @@
   "dependencies": {
     "body-parser": "*",
     "ejs": "^2.5.7",
-    "express": "*"
+    "express": "*",
+    "mysql": "^2.15.0",
+    "save": "^2.3.2"
   },
   "author": "CloudAerius",
   "license": "ISC"
