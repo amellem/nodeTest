@@ -50,7 +50,7 @@ app.get('/addpost1', (req, res) => {
 */
 
 // Read
-exports.queryStringCMD = (req, res) => {
+exports.GetAllPosts = (req, res) => {
     let cmd = 'SELECT * FROM posts';
     let returnValue;
     conn.query(cmd, (err, results) => {

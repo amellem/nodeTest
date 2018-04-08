@@ -5,6 +5,10 @@ h1{
     text-align: center;
 }
 
+#createPost{
+    display: none;
+}
+
 .header-nav{
     height: 60px;
     background-color: springgreen;

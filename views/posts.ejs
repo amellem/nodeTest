@@ -1,9 +1,18 @@
 <% include partials/header.ejs %>
-<h1>Posts</h1>
-<ul>
-    <% data.forEach((item) => { %>
-        <li><span><strong>Id: </strong><%= item.id %>,</span><span><strong>Title: </strong><%= item.title %>,</span><span><strong>Body: </strong><%= item.body %></span></li>
-    <% }) %>
-</ul>
-
+<div class="body-wrapper">
+    <h1>Posts</h1>
+    <ul>
+        <% data.forEach((item) => { %>
+            <li><span><strong>Id: </strong><%= item.id %>,</span><span><strong>Title: </strong><%= item.title %>,</span><span><strong>Body: </strong><%= item.body %></span></li>
+        <% }) %>
+    </ul>
+    <button id="createPostBtn">Create a post</button>
+    <form id="createPost" method="POST" action="/posts">
+        <label for="title">Title of post</label>
+        <input type="text" name="title">
+        <label for="body">Body of post</label>
+        <input type="textarea" name="body">
+        <input type="submit" value="Submit">
+    </form>
+</div>
 <% include partials/footer.ejs %>

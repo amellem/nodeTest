@@ -10,6 +10,7 @@ const path = require('path');
 var app = express();
 
 // custom MiddleWare
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
 /*var logger = function(req, res, next){
     console.log('Logging');
     next();
@@ -30,22 +31,18 @@ app.use(express.static(path.join(__dirname, 'Public')));
 
 // MySQL Routes
 app.get('/posts', (req, res) => {
-    sql.queryStringCMD(req, res);
+    sql.GetAllPosts(req, res);
+});
+
+app.post('/posts', urlencodedParser, (req, res) => {
+    console.log(req.body.title);
+    sql.GetAllPosts(req, res);
 });
 
 app.get('/test', (req, res) => {
     let returnValue = sql.test();
     console.log(returnValue);
-})
-/*
-app.get('/getposts', (req, res)=>{
-    let cmd = 'SELECT * FROM posts';
-    let query = sql.db.query(cmd, (err, results) => {
-        if(err) throw err;
-        console.log(results);
-        res.send('Posts fetched...');
-    });
-});*/
+});
 
 // Routes
 app.get('/', (req, res) => {
@@ -54,13 +51,13 @@ app.get('/', (req, res) => {
 
 app.get('/about', (req, res) => {
     res.render('about');
-})
+});
 
 app.get('/contact', (req, res) => {
     res.render('contact');
-})
+});
 
 // Start Server
 app.listen(3000, () => {
     console.log('Server Started on Port 3000...');
-})
+});
