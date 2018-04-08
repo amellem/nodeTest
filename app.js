@@ -1,7 +1,7 @@
 // Modules
 const express = require('express');
 //const mysql = require('mysql');
-const sql = require('./sql.js');
+const blogs = require('./blogs.js');
 const bodyParser = require('body-parser');
 const path = require('path');
 
@@ -31,12 +31,12 @@ app.use(express.static(path.join(__dirname, 'Public')));
 
 // MySQL Routes
 app.get('/posts', (req, res) => {
-    sql.GetAllPosts(req, res);
+    blogs.GetAllPosts(req, res);
 });
 
 app.post('/posts', urlencodedParser, (req, res) => {
-    console.log(req.body.title);
-    sql.GetAllPosts(req, res);
+    blogs.SavePost(req, res);
+    blogs.GetAllPosts(req, res);
 });
 
 app.get('/test', (req, res) => {

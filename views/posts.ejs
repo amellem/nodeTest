@@ -1,9 +1,9 @@
 <% include partials/header.ejs %>
 <div class="body-wrapper">
     <h1>Posts</h1>
-    <ul>
+    <ul id="blogList">
         <% data.forEach((item) => { %>
-            <li><span><strong>Id: </strong><%= item.id %>,</span><span><strong>Title: </strong><%= item.title %>,</span><span><strong>Body: </strong><%= item.body %></span></li>
+            <li id="blog{{item.id }}"><span class="blogTitle">Title: <%= item.title %>,</span><span class="blogBody">Body: <%= item.body %></span></li>
         <% }) %>
     </ul>
     <button id="createPostBtn">Create a post</button>

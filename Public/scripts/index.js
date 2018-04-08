@@ -1,27 +1,39 @@
-/*const bodyWrapper = document.getElementById('body-wrapper');
-const bodyWarpperH1 = bodyWrapper.getElementsByTagName('h1');
-bodyWrapper.addEventListener( 'click', () => {
-    if ( bodyWarpperH1[0].style.display === 'none' ){
-        bodyWarpperH1[0].style.display = 'block';
-    }else{
-        bodyWarpperH1[0].style.display = 'none';
-    }
-})*/
 
 const createPostBtn = document.getElementById('createPostBtn');
-function AjaxGet(url){
-    let xhr = new XMLHttpRequest();
-    xhr.open("GET", url, true);
-    xhr.onload = () => {
-        if( this.status == 200 ){
-            console.log(this.responseText);
-        }
-    }
-    xhr.onerror = () => {
-        console.log('Request Error...');
-    }
-    xhr.send();
-}
+const formSubmit = document.getElementById('submitForm');
+const form = document.getElementById('createPost');
+
+// function AjaxPost(url, data, callback){
+//     let xhr = new XMLHttpRequest();
+//     xhr.open("POST", url, true);
+//     xhr.setRequestHeader("Content-Type", "application/json");
+//     xhr.onload = () => {
+//         if( this.status == 200 ){
+//             callback(this.responseText);
+//             console.log(this.responseText);
+//         }
+//     }
+//     xhr.onerror = () => {
+//         console.log('Request Error...');
+//     }
+//     xhr.send(JSON.stringify(data));
+// }
+
+// function PopulateList(data){
+//     console.log(data);
+// }
+
+// formSubmit.addEventListener('click', (e) => {
+//     let inputs = form.querySelectorAll('input');
+//     let data = [];
+//     inputs.forEach((input)=>{
+//         let object = {};
+//         object[input.name] = input.value;
+//         data.push(object);
+//     });
+//     AjaxPost('/posts', data, PopulateList);
+// });
+
 createPostBtn.addEventListener('click', ()=>{
     let form = document.getElementById('createPost');
     form.style.display = 'block';
